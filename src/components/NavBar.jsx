@@ -20,7 +20,7 @@ class NavBar extends Component {
             <Nav.Link
               href="#series"
               onClick={() => {
-                this.props.setSelectedTab("Series")
+                this.props.getSelectedTab("Series")
               }}
             >
               Series
@@ -28,7 +28,7 @@ class NavBar extends Component {
             <Nav.Link
               href="#movies"
               onClick={() => {
-                this.props.setSelectedTab("Movies")
+                this.props.getSelectedTab("Movies")
               }}
             >
               Movies
@@ -36,7 +36,7 @@ class NavBar extends Component {
             <Nav.Link
               href="#episodes"
               onClick={() => {
-                this.props.setSelectedTab("Episodes")
+                this.props.getSelectedTab("Episodes")
               }}
             >
               Episodes

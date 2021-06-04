@@ -5,20 +5,32 @@
 }
 
 .Footer li {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   list-style: none;
 }
 .Footer a {
-  font-size: " 23px";
+  font-size: "18px";
   color: darkgray;
   margin-right: " 15px";
+  text-decoration: none;
 }
 .Footer a i {
   color: darkgray;
   font-size: 30px;
   margin: 10px;
 }
-.Footer .icons {
+.Footer .icons,
+.Footer Button,
+.Footer p {
   margin-left: 40px;
   padding-left: 0;
+}
+.Footer Button {
+  border-color: darkgray;
+  color: darkgray;
+  padding: 5px 10px;
+}
+.Footer p {
+  color: darkgray;
+  margin-top: 10px;
 }

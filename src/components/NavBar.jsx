@@ -28,7 +28,7 @@ class NavBar extends Component {
             <Nav.Link
               href="#movies"
               onClick={() => {
-                this.props.getSelectedTab("Movies")
+                this.props.getSelectedTab("Movie")
               }}
             >
               Movies

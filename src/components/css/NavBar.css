@@ -1,0 +1,29 @@
+.navbar {
+  background-color: black;
+}
+
+.navbar i {
+  color: white;
+}
+
+.navbar button {
+  border: none;
+  background: none;
+}
+
+.navbar #search-input {
+  width: 100px;
+}
+
+.navbar .dropdown-toggle {
+  background: none;
+}
+
+.dropdown-menu {
+  background: black !important;
+  border: 1px solid #a6a6a6 !important;
+}
+
+.dropdown-item {
+  color: #a6a6a6 !important;
+}

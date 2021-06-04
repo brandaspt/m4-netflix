@@ -1,0 +1,20 @@
+.carouselItemsRow {
+    overflow-x: auto;
+    flex-wrap: nowrap!important;
+    scrollbar-width: none;
+    height: 200px;
+}
+
+.carouselItemsRow::-webkit-scrollbar {
+    display: none;
+}
+
+.carouselRow {
+    background-color: #151515;
+}
+
+.carouselRow h2 {
+    font-size: 25px;
+    margin-left: 3px;
+    color: white;
+}

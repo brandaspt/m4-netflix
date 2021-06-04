@@ -48,7 +48,7 @@
 }
 
 .carouselCardCol .card:hover button:focus {
-    display:none;
+    display: none;
 }
 
 .carouselCardCol .card .cardBody {
@@ -69,5 +69,9 @@
 }
 
 .carouselCardCol .card:hover {
-    
+
+}
+
+.disableOverflow {
+    padding-bottom: 200px;
 }

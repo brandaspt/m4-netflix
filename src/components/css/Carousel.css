@@ -11,6 +11,8 @@
 
 .carouselRow {
   background-color: black;
+  margin-right: 0!important;
+  margin-left: 0!important;
 }
 
 .carouselRow h2 {
@@ -18,3 +20,4 @@
   margin-left: 3px;
   color: white;
 }
+

@@ -9,15 +9,28 @@ class Carousel extends React.Component {
   state = {
     movies: [],
     isLoading: true,
+    oldSearch: this.props.searchQuery,
+    oldType: this.props.type,
+    oldPage: this.props.page
   }
 
   componentDidMount = async () => {
     this.fetchData()
+    new SwipeScroll(this.carouselItemsRow)
+  }
+
+
+  componentDidUpdate = async () => {
+      if(!(this.props.searchQuery == this.state.oldSearch) && !(this.props.type == this.state.oldType) && !(this.props.page == this.state.oldPage)) {
+        this.setState({...this.state, oldSearch: this.props.searchQuery, oldType: this.props.type, oldPage: this.props.page})
+        this.fetchData()
+      }
   }
 
   // componentDidUpdate = async () => {
   //   this.fetchData()
   // }
+
 
   fetchData = async () => {
     try {
@@ -28,8 +41,8 @@ class Carousel extends React.Component {
       )
       if (response.ok) {
         const data = await response.json()
-        this.setState({ isLoading: false, movies: data.Search })
-        new SwipeScroll(this.carouselItemsRow)
+        this.setState({...this.state, isLoading: false, movies: data.Search })
+        
       } else {
         console.log("error with fetching")
       }
@@ -71,7 +84,6 @@ class Carousel extends React.Component {
         <Row
           className="carouselItemsRow"
           onWheel={e => this.scroll(e)}
-          onScroll={e => this.scroll(e)}
           ref={e => (this.carouselItemsRow = e)}
         >
           {this.state.isLoading ? (

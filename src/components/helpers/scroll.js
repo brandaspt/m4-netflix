@@ -39,7 +39,7 @@ export default class SwipeScroll {
 	animate () {
 		this.frameId = requestAnimationFrame(this.animate)
 		this.current += (this.to - this.current) / this.speed
-		this.container.scrollLeft = this.current.toFixed(2) - 20
+		this.container.scrollLeft = this.current.toFixed(2) - 50
 		
 		// quit animation if goal reached
 		if (Math.round(this.current) === this.to) {

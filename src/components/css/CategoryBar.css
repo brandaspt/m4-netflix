@@ -1,0 +1,37 @@
+.CategoryBar {
+  background: black;
+}
+
+.CategoryBar .section-title {
+  text-transform: capitalize;
+}
+
+.CategoryBar .dropdown-toggle {
+  border: 1px solid #a6a6a6;
+  border-radius: 5px;
+  color: #a6a6a6 !important;
+  cursor: pointer;
+}
+
+.CategoryBar .dropdown-toggle:hover {
+  background: #a6a6a6;
+  color: black !important;
+}
+
+.CategoryBar .dropdown-toggle::after {
+  margin-left: 30px;
+}
+
+.CategoryBar .right-icons {
+  color: #a6a6a6;
+}
+
+.CategoryBar .right-icons i {
+  border: 1px solid #a6a6a6;
+  cursor: pointer;
+}
+
+.CategoryBar .right-icons i:hover {
+  background: #a6a6a6;
+  color: black;
+}

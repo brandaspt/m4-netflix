@@ -1,8 +1,9 @@
 .carouselItemsRow {
   overflow-x: auto;
+  overscroll-behavior: contain;
   flex-wrap: nowrap !important;
   scrollbar-width: none;
-  height: 150px;
+  height: 175px;
 }
 
 .carouselItemsRow::-webkit-scrollbar {
@@ -20,4 +21,3 @@
   margin-left: 3px;
   color: white;
 }
-

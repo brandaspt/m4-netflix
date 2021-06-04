@@ -67,11 +67,3 @@
 .carouselCardCol .card:hover .cardBody {
     opacity: 1;
 }
-
-.carouselCardCol .card:hover {
-
-}
-
-.disableOverflow {
-    padding-bottom: 200px;
-}

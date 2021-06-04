@@ -1,0 +1,24 @@
+.Footer {
+  position: absolute;
+  bottom: 0;
+  background-color: #010101;
+}
+
+.Footer li {
+  margin-bottom: 15px;
+  list-style: none;
+}
+.Footer a {
+  font-size: " 23px";
+  color: darkgray;
+  margin-right: " 15px";
+}
+.Footer a i {
+  color: darkgray;
+  font-size: 30px;
+  margin: 10px;
+}
+.Footer .icons {
+  margin-left: 40px;
+  padding-left: 0;
+}

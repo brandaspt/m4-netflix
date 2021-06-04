@@ -1,6 +1,6 @@
-import "../components/css/Footer.css";
-import React, { Component } from "react";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import "../components/css/Footer.css"
+import React, { Component } from "react"
+import { Container, Row, Col, Button } from "react-bootstrap"
 
 class Footer extends Component {
   render() {
@@ -27,16 +27,16 @@ class Footer extends Component {
             <Col className="col-12 col-md-6 col-lg-3">
               <ul>
                 <li>
-                  <a href="#">Audio and Subtitles</a>
+                  <a href="#home">Audio and Subtitles</a>
                 </li>
                 <li>
-                  <a href="#">Media Centrer</a>
+                  <a href="#home">Media Centrer</a>
                 </li>
                 <li>
-                  <a href="#">Privacy</a>
+                  <a href="#home">Privacy</a>
                 </li>
                 <li>
-                  <a href="#">Contact Us</a>
+                  <a href="#home">Contact Us</a>
                 </li>
               </ul>
               <Button variant="black">Service Code</Button>
@@ -45,39 +45,39 @@ class Footer extends Component {
             <Col className="col-12 col-md-6 col-lg-3">
               <ul>
                 <li>
-                  <a href="#">Audio Description</a>
+                  <a href="#home">Audio Description</a>
                 </li>
                 <li>
-                  <a href="#">Investor Relaions</a>
+                  <a href="#home">Investor Relaions</a>
                 </li>
                 <li>
-                  <a href="#">Legal Notices</a>
-                </li>
-              </ul>
-            </Col>
-            <Col className="col-12 col-md-6 col-lg-3">
-              <ul>
-                <li>
-                  <a href="#">Help Center</a>
-                </li>
-                <li>
-                  <a href="#">Jobs</a>
-                </li>
-                <li>
-                  <a href="#">Cookie Preferences</a>
+                  <a href="#home">Legal Notices</a>
                 </li>
               </ul>
             </Col>
             <Col className="col-12 col-md-6 col-lg-3">
               <ul>
                 <li>
-                  <a href="#">Gift Cards</a>
+                  <a href="#home">Help Center</a>
                 </li>
                 <li>
-                  <a href="#">Terms of Use</a>
+                  <a href="#home">Jobs</a>
                 </li>
                 <li>
-                  <a href="#">Corporate Information</a>
+                  <a href="#home">Cookie Preferences</a>
+                </li>
+              </ul>
+            </Col>
+            <Col className="col-12 col-md-6 col-lg-3">
+              <ul>
+                <li>
+                  <a href="#home">Gift Cards</a>
+                </li>
+                <li>
+                  <a href="#home">Terms of Use</a>
+                </li>
+                <li>
+                  <a href="#home">Corporate Information</a>
                 </li>
               </ul>
             </Col>
@@ -85,7 +85,7 @@ class Footer extends Component {
         </Container>
         r
       </Container>
-    );
+    )
   }
 }
-export default Footer;
+export default Footer

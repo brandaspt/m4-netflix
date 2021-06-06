@@ -3,7 +3,7 @@ import _ from 'lodash'
 export default class SwipeScroll {
 	constructor (container) {
 		this.container = container
-		this.speed = 15
+		this.speed = 10
 		this.debounceAfter = 0
 		
 		// binds
@@ -39,7 +39,7 @@ export default class SwipeScroll {
 	animate () {
 		this.frameId = requestAnimationFrame(this.animate)
 		this.current += (this.to - this.current) / this.speed
-		this.container.scrollLeft = this.current.toFixed(2) - 50
+		this.container.scrollLeft = this.current.toFixed(2) - 30
 		
 		// quit animation if goal reached
 		if (Math.round(this.current) === this.to) {

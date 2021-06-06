@@ -25,6 +25,10 @@ class App extends Component {
     })
   }
 
+  defaultCarousels = [{carouselName: 'Harry Potter', searchQuery: 'harry potter', type: "movie", page: 1},
+                      {carouselName: 'Star Wars', searchQuery: 'star wars', type: "movie", page: 1},
+                      {carouselName: 'Lord Of The Rings', searchQuery: 'lord rings', type: "movie", page: 1}]
+
   render() {
     console.log(this.state.contentType)
     return (
@@ -34,11 +38,7 @@ class App extends Component {
         {this.state.searchQuery !== "" ? (
           <SearchGrid searchQuery={this.state.searchQuery} type={this.state.contentType} />
         ) : (
-          <>
-            <Carousel carouselName="Harry Potter" searchQuery="harry potter" type="movie" page={1} />
-            <Carousel carouselName="Star Wars" searchQuery="star wars" type="movie" page={1} />
-            <Carousel carouselName="Lord of the Rings" searchQuery="lord rings" type="movie" page={1} />
-          </>
+          this.defaultCarousels.map(carousel => <Carousel {...carousel} />)
         )}
         <Footer />
       </div>

@@ -1,5 +1,6 @@
 .CategoryBar {
   background: black;
+  padding: 0px 35px!important;
 }
 
 .CategoryBar .section-title {
@@ -35,3 +36,7 @@
   background: #a6a6a6;
   color: black;
 }
+
+.CategoryBar .dropdown-menu {
+  z-index: 9999;
+} 

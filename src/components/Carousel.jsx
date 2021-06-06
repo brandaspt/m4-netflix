@@ -30,10 +30,6 @@ class Carousel extends React.Component {
     }
   }
 
-  // componentDidUpdate = async () => {
-  //   this.fetchData()
-  // }
-
   fetchData = async () => {
     try {
       const response = await fetch(

@@ -1,9 +1,10 @@
 .carouselItemsRow {
-  overflow-x: auto;
+  overflow-x: hidden;
   overscroll-behavior: contain;
   flex-wrap: nowrap !important;
   scrollbar-width: none;
-  height: 175px;
+  padding-bottom: 350px;
+  margin-bottom: -350px;
 }
 
 .carouselItemsRow::-webkit-scrollbar {
@@ -14,10 +15,11 @@
   background-color: black;
   margin-right: 0!important;
   margin-left: 0!important;
+  position: relative;
 }
 
 .carouselRow h2 {
   font-size: 25px;
-  margin-left: 3px;
+  margin-left: 1px;
   color: white;
 }

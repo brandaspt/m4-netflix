@@ -3,7 +3,7 @@ import _ from 'lodash'
 export default class SwipeScroll {
 	constructor (container) {
 		this.container = container
-		this.speed = 15
+		this.speed = 10
 		this.debounceAfter = 0
 		
 		// binds

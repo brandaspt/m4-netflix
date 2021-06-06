@@ -8,7 +8,7 @@ class SearchCard extends Component {
   render() {
     console.log(this.props.item)
     return (
-      <Col sm={6} md={4} lg={3}>
+      <Col xs={12} sm={4} md={3} lg={2}>
         <Card
           className="my-3"
           onClick={() => {
@@ -17,7 +17,7 @@ class SearchCard extends Component {
         >
           <Card.Img className="img-fluid" variant="top" src={this.props.item.Poster} />
           <Card.Body className="text-center">
-            <Card.Title>{this.props.item.Title}</Card.Title>{" "}
+            <Card.Title>{this.props.item.Title}</Card.Title>
           </Card.Body>
         </Card>
       </Col>

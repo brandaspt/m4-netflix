@@ -21,9 +21,9 @@ class Carousel extends React.Component {
 
   componentDidUpdate = async () => {
     if (
-      !(this.props.searchQuery == this.state.oldSearch) &&
-      !(this.props.type == this.state.oldType) &&
-      !(this.props.page == this.state.oldPage)
+      !(this.props.searchQuery === this.state.oldSearch) &&
+      !(this.props.type === this.state.oldType) &&
+      !(this.props.page === this.state.oldPage)
     ) {
       this.setState({ ...this.state, oldSearch: this.props.searchQuery, oldType: this.props.type, oldPage: this.props.page })
       this.fetchData()

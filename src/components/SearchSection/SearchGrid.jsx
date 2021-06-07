@@ -1,7 +1,7 @@
 import { Component } from "react"
 import { CardGroup } from "react-bootstrap"
 import SearchCard from "./SearchCard"
-import "./css/SearchGrid.css"
+import "../css/SearchGrid.css"
 
 class SearchGrid extends Component {
   state = {
@@ -35,7 +35,7 @@ class SearchGrid extends Component {
   render() {
     console.log(this.state.movies)
     return (
-      <CardGroup className="justify-content-center">
+      <CardGroup className="justify-content-center px-3">
         {this.state.movies ? this.state.movies.map(el => <SearchCard key={el.imdbID} item={el} />) : <p>No results</p>}
       </CardGroup>
     )

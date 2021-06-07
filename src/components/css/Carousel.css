@@ -1,10 +1,18 @@
+body {
+  background-color: black!important;
+}
+
 .carouselItemsRow {
   overflow-x: hidden;
+  overflow-y: hidden;
   overscroll-behavior: contain;
   flex-wrap: nowrap !important;
   scrollbar-width: none;
-  padding-bottom: 350px;
-  margin-bottom: -350px;
+}
+
+.carouselPadMar {
+  padding-bottom: 320px;
+  margin-bottom: -320px;
 }
 
 .carouselItemsRow::-webkit-scrollbar {

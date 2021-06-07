@@ -1,17 +1,18 @@
 import React from 'react'
-import { Col, Card } from 'react-bootstrap'
+import { Col, Card, Form } from 'react-bootstrap'
 import './css/CarouselItem.css'
+import CardComments from './CardComments'
 
 class CarouselItem extends React.Component {
 
     state = {
-        hovered: false,
+        hovered: false
     }
 
     render() {
         return (
             <Col xs={12} sm={6} md={4} lg={3} xl={2} className="carouselCardCol py-3 px-0 pushCard">    
-                <Card className="mx-1" onMouseOver={() => this.setState({hovered: true})} onMouseOut={() => this.setState({hovered: false})}>
+                <Card className="mx-1" onMouseOver={() => this.setState({hovered: true})} onMouseLeave={() => {this.setState({hovered: false}); this.props.commHover(false)}}>
                     <div className="cardImgWrapper">
                         <Card.Img variant="top" src={this.props.Poster} />
                     </div>
@@ -22,9 +23,7 @@ class CarouselItem extends React.Component {
                             <Card.Text>{this.props.Type}</Card.Text>
                         </div>
                     </Card.Body>
-                    <div className={this.state.hovered ? "cardInfo" : "cardInfo d-none"}>
-                        hello
-                    </div>
+                    {this.state.hovered && <CardComments imdbID={this.props.imdbID} commHover={this.props.commHover} />}
                 </Card> 
             </Col>
         )

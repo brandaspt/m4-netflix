@@ -28,14 +28,12 @@ class Carousel extends React.Component {
     new SwipeScroll(this.carouselItemsRow)
   }
 
-
   componentDidUpdate = async () => {
       if(!(this.props.searchQuery == this.state.oldSearch) && !(this.props.type == this.state.oldType)) {
         this.setState({...this.state, oldSearch: this.props.searchQuery, oldType: this.props.type})
         this.fetchData()
       }
   }
-
 
   fetchData = async () => {
     try {
@@ -46,8 +44,7 @@ class Carousel extends React.Component {
       )
       if (response.ok) {
         const data = await response.json()
-        this.setState({...this.state, isLoading: false, movies: data.Search })
-        
+        this.setState({ ...this.state, isLoading: false, movies: data.Search })
       } else {
         console.log("error with fetching")
       }

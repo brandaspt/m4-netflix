@@ -1,6 +1,7 @@
 import { Component } from "react"
 import { CardGroup } from "react-bootstrap"
 import SearchCard from "./SearchCard"
+import "./css/SearchGrid.css"
 
 class SearchGrid extends Component {
   state = {
@@ -12,8 +13,8 @@ class SearchGrid extends Component {
     this.fetchData()
   }
 
-  componentDidUpdate = () => {
-    this.fetchData()
+  componentDidUpdate = prevProps => {
+    if (prevProps.searchQuery !== this.props.searchQuery || prevProps.type !== this.props.type) this.fetchData()
   }
 
   fetchData = async () => {
@@ -34,7 +35,7 @@ class SearchGrid extends Component {
   render() {
     console.log(this.state.movies)
     return (
-      <CardGroup className="my-4 justify-content-center">
+      <CardGroup className="justify-content-center">
         {this.state.movies ? this.state.movies.map(el => <SearchCard key={el.imdbID} item={el} />) : <p>No results</p>}
       </CardGroup>
     )

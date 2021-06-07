@@ -1,0 +1,17 @@
+.comment-list {
+    max-height: 165px;
+}
+
+.comment-list {
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.comment-list::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+.comment-rate {
+    min-width: 25px;
+}

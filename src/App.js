@@ -5,6 +5,7 @@ import Carousel from "./components/Carousel"
 import SearchGrid from "./components/SearchGrid"
 import Footer from "./components/Footer"
 import "bootstrap/dist/css/bootstrap.min.css"
+import defaultCarousels from "./data/defaultCarousel.json"
 
 class App extends Component {
   state = {
@@ -26,7 +27,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.contentType)
     return (
       <div className="App">
         <NavBar getSelectedTab={this.setSelectedTab} getSearchQuery={this.setSearchQuery} />
@@ -34,11 +34,7 @@ class App extends Component {
         {this.state.searchQuery !== "" ? (
           <SearchGrid searchQuery={this.state.searchQuery} type={this.state.contentType} />
         ) : (
-          <>
-            <Carousel carouselName="Harry Potter" searchQuery="harry potter" type="movie" page={1} />
-            <Carousel carouselName="Star Wars" searchQuery="star wars" type="movie" page={1} />
-            <Carousel carouselName="Lord of the Rings" searchQuery="lord rings" type="movie" page={1} />
-          </>
+          this.state.contentType && defaultCarousels[this.state.contentType].map(carousel => <Carousel {...carousel} />)
         )}
         <Footer />
       </div>

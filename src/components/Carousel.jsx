@@ -32,8 +32,7 @@ class Carousel extends React.Component {
 
     if (
       !(this.props.searchQuery === this.state.oldSearch) &&
-      !(this.props.type === this.state.oldType) &&
-      !(this.props.page === this.state.oldPage)
+      !(this.props.type === this.state.oldType)
     ) {
       this.setState({ ...this.state, oldSearch: this.props.searchQuery, oldType: this.props.type, oldPage: this.props.page })
       this.fetchData()

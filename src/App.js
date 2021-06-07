@@ -27,12 +27,6 @@ class App extends Component {
     })
   }
   
-  defaultCarousels = [
-    { carouselName: "Harry Potter", searchQuery: "harry potter", type: "movie", page: 1 },
-    { carouselName: "Star Wars", searchQuery: "star wars", type: "movie", page: 1 },
-    { carouselName: "Lord Of The Rings", searchQuery: "lord rings", type: "movie", page: 1 },
-  ]
-
   render() {
     return (
       <div className="App">

@@ -1,7 +1,6 @@
 import React from 'react'
-import { Col, Card, Form } from 'react-bootstrap'
-import './css/CarouselItem.css'
-import CardComments from './CardComments'
+import { Col, Card } from 'react-bootstrap'
+import CardComments from './CarouselCardComments'
 
 class CarouselItem extends React.Component {
 

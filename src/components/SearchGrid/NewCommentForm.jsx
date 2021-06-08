@@ -1,6 +1,6 @@
 import { Component } from "react"
 import { Form, Button } from "react-bootstrap"
-import "../css/NewCommentForm.css"
+import { postComment } from "../common/dataFetch"
 
 class NewCommentForm extends Component {
   state = {
@@ -16,21 +16,11 @@ class NewCommentForm extends Component {
       elementId: this.props.imdbID,
     }
 
-    try {
-      const response = await fetch("https://striveschool-api.herokuapp.com/api/comments/", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGFlNTk2NGNlYWY0ODAwMTVjOTE5MzYiLCJpYXQiOjE2MjIwMzg4ODQsImV4cCI6MTYyMzI0ODQ4NH0.kcSw_K1mFlUoMMV0Ht3yenaWNHGapnpFfnPfWPee6cU",
-        },
-        body: JSON.stringify(payload),
-      })
-      this.props.toggleRefresh()
-      console.log(response)
-    } catch (error) {
-      console.log(error)
+    const result = await postComment(payload)
+    if(result.error) {
+      console.log('error posting comment')
     }
+    this.props.toggleRefresh()
   }
 
   render() {

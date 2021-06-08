@@ -1,17 +1,17 @@
 import React from "react"
-import CarouselItem from "./CarouselItem"
-import LoadingSpinner from "./LoadingSpinner"
-import scrollFunction from "./helpers/scrollerFunction"
-import SwipeScroll from "./helpers/scrollClass"
+import CarouselItem from "./CarouselCard"
+import LoadingSpinner from "../LoadingSpinner"
+import scrollFunction from "../common/scrollerFunction"
+import SwipeScroll from "../common/scrollClass"
 import { Row } from "react-bootstrap"
-import "./css/Carousel.css"
+import "./Carousel.css"
+
+import { getFilms } from "../common/dataFetch"
 
 class Carousel extends React.Component {
   state = {
     movies: [],
     isLoading: true,
-    oldSearch: this.props.searchQuery,
-    oldType: this.props.type,
     hoveringCardComms: false,
     carouselHovered: false
   }
@@ -28,33 +28,17 @@ class Carousel extends React.Component {
     new SwipeScroll(this.carouselItemsRow)
   }
 
-  componentDidUpdate = async () => {
-
-    if (
-      !(this.props.searchQuery === this.state.oldSearch) &&
-      !(this.props.type === this.state.oldType)
-    ) {
-      this.setState({ ...this.state, oldSearch: this.props.searchQuery, oldType: this.props.type, oldPage: this.props.page })
-      this.fetchData()
-    }
+  componentDidUpdate = async (previousProps) => {
+    (!(this.props.searchQuery === previousProps.searchQuery) && !(this.props.type === previousProps.type)) && this.fetchData()
   }
 
   fetchData = async () => {
-    try {
-      const response = await fetch(
-        `http://www.omdbapi.com/?apikey=c4961d1f&s=${this.props.searchQuery}&type=${
-          this.props.type === "home" ? "movie" : this.props.type
-        }&page=${this.props.page}`
-      )
-      if (response.ok) {
-        const data = await response.json()
-        this.setState({ ...this.state, isLoading: false, movies: data.Search })
-      } else {
-        console.log("error with fetching")
-      }
-    } catch (error) {
-      console.log(error)
-    } 
+    const result = await getFilms(this.props.searchQuery, this.props.type, this.props.page)
+    if(!result.error) {
+      this.setState({ ...this.state, isLoading: false, movies: result.data.Search })
+    } else {
+      alert('error with fetch')
+    }
   }
 
   render() {

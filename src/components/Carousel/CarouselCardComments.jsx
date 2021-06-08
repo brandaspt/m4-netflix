@@ -1,7 +1,6 @@
 import React from 'react'
-import './css/CardComments.css'
 import CommentsList from './CommentsList'
-import AddComment from './AddComment'
+import CommentAdd from './CommentAdd'
 
 class CardComments extends React.Component {
 
@@ -9,15 +8,15 @@ class CardComments extends React.Component {
         updated: false
     }
 
-    commentsUpdated = () => {
-        this.setState({updated: true}, () => this.setState({updated: false}))
+    update = () => {
+        this.setState({updated: true})
     }
 
     render() {
         return (
             <div className="cardInfo d-flex flex-column" onMouseOver={() => this.props.commHover(true)} onMouseLeave={() => this.props.commHover(false)}>
-                <CommentsList imdbID={this.props.imdbID} commentsUpdated={this.commentsUpdated} updated={this.state.updated} />
-                <AddComment imdbID={this.props.imdbID} commentsUpdated={this.commentsUpdated} />
+                <CommentsList imdbID={this.props.imdbID} updated={this.state.updated} update={this.update} />
+                <CommentAdd imdbID={this.props.imdbID} update={this.update} />
             </div>
         )
     }

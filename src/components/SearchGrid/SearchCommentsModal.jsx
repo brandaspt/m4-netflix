@@ -1,18 +1,16 @@
 import { Component } from "react"
 import { Button } from "react-bootstrap"
 import NewCommentForm from "./NewCommentForm"
-import "../css/SearchCommentsModal.css"
 import SearchCommentList from "./SearchCommentList"
 
 class SearchCommentsModal extends Component {
-  state = { refreshCommentList: false }
-
-  componentDidMount() {
-    console.log("mounted")
+  
+  state = { 
+    refreshCommentList: false 
   }
 
-  componentWillUnmount() {
-    console.log("unmounted")
+  toggleRefresh = () => {
+    this.setState({ refreshCommentList: !this.state.refreshCommentList })
   }
 
   render() {
@@ -29,12 +27,12 @@ class SearchCommentsModal extends Component {
               </div>
               <SearchCommentList
                 refresh={this.state.refreshCommentList}
-                toggleRefresh={() => this.setState({ refreshCommentList: !this.state.refreshCommentList })}
+                toggleRefresh={this.toggleRefresh}
                 imdbID={this.props.imdbID}
               />
             </div>
             <NewCommentForm
-              toggleRefresh={() => this.setState({ refreshCommentList: !this.state.refreshCommentList })}
+              toggleRefresh={this.toggleRefresh}
               imdbID={this.props.imdbID}
             />
           </div>

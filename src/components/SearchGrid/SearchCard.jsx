@@ -1,6 +1,5 @@
 import { Component } from "react"
 import { Col, Card, Button } from "react-bootstrap"
-import "../css/SearchCard.css"
 import SearchCommentsModal from "./SearchCommentsModal"
 
 class SearchCard extends Component {

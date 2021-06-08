@@ -1,4 +1,5 @@
 import { Component } from "react"
+import { getComments } from "../common/dataFetch"
 
 class SearchCommentList extends Component {
   state = {
@@ -9,8 +10,7 @@ class SearchCommentList extends Component {
     this.fetchData()
   }
 
-  componentDidUpdate = prevProps => {
-    // if (this.props.imdbID !== prevProps.imdbID) this.fetchData()
+  componentDidUpdate = () => {
     if (this.props.refresh) {
       this.fetchData()
       this.props.toggleRefresh()
@@ -18,15 +18,10 @@ class SearchCommentList extends Component {
   }
 
   fetchData = async () => {
-    const response = await fetch(`https://striveschool-api.herokuapp.com/api/comments/${this.props.imdbID}`, {
-      headers: {
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGFlNTk2NGNlYWY0ODAwMTVjOTE5MzYiLCJpYXQiOjE2MjIwMzg4ODQsImV4cCI6MTYyMzI0ODQ4NH0.kcSw_K1mFlUoMMV0Ht3yenaWNHGapnpFfnPfWPee6cU",
-      },
-    })
-    const data = await response.json()
-    console.log(data)
-    this.setState({ comments: data })
+    const result = await getComments(this.props.imdbID)
+    if(!result.error) {
+      this.setState({ comments: result.data })
+    }
   }
 
   render() {

@@ -9,7 +9,7 @@ class CategoryBar extends Component {
     return (
       <Container className="CategoryBar d-flex justify-content-between align-items-center" fluid>
         <div className="d-flex justify-content-start align-items-center py-3">
-          <h4 className="section-title text-white mr-5 my-0">{this.props.title}</h4>
+          <h4 className="section-title text-white mr-5 my-0">{this.props.match.params.type === 'recent' ? 'recently added' : this.props.match.params.type }</h4>
           <Dropdown>
             <Dropdown.Toggle className="text-white p-1" as="div" id="dropdown-basic">
               Genres

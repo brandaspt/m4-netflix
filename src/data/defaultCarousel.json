@@ -4,7 +4,7 @@
 "series": [{"carouselName": "Bad Series", "searchQuery": "bad", "type": "series", "page": 1},
       {"carouselName": "Game Series", "searchQuery": "game", "type": "series", "page": 1},
       {"carouselName": "Friends", "searchQuery": "friends", "type": "series", "page": 1}],
-"movie": [{"carouselName": "Avengers", "searchQuery": "avengers", "type": "movie", "page": 1},
+"movies": [{"carouselName": "Avengers", "searchQuery": "avengers", "type": "movie", "page": 1},
       {"carouselName": "Las Vegas", "searchQuery": "las vegas", "type": "movie", "page": 1},
       {"carouselName": "Shrek", "searchQuery": "shrek", "type": "movie", "page": 1}],
 "episodes": [{"carouselName": "Game Of Thrones", "searchQuery": "game of thrones", "type": "", "page": 1},

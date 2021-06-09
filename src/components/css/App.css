@@ -1,0 +1,8 @@
+* {
+  box-sizing: border-box;
+}
+
+.App {
+  background-color: black;
+  padding: 0 15px;
+}

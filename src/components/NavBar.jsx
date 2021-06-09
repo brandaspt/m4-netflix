@@ -1,13 +1,11 @@
 import { Component } from "react"
 import { Navbar, Nav, Dropdown, Form, FormControl } from "react-bootstrap"
+import { Link, withRouter } from 'react-router-dom'
 import "./css/NavBar.css"
 
 class NavBar extends Component {
-  state = {
-    searchQuery: "",
-  }
-
   render() {
+    console.log(this.props)
     return (
       <Navbar variant="dark" expand="lg">
         <Navbar.Brand href="#home">
@@ -16,46 +14,25 @@ class NavBar extends Component {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link href="#home"
-              onClick={() => {
-              this.props.getSelectedTab("Home")
-              }}
-            >
+            <Link to="/home" className="nav-link">
               Home
-            </Nav.Link>
-            <Nav.Link
-              href="#series"
-              onClick={() => {
-                this.props.getSelectedTab("Series")
-              }}
-            >
+            </Link>
+            <Link to="/series" className="nav-link">
               Series
-            </Nav.Link>
-            <Nav.Link
-              href="#movies"
-              onClick={() => {
-                this.props.getSelectedTab("Movie")
-              }}
-            >
+            </Link>
+            <Link to="/movies" className="nav-link">
               Movies
-            </Nav.Link>
-            <Nav.Link
-              href="#episodes"
-              onClick={() => {
-                this.props.getSelectedTab("Episodes")
-              }}
-            >
+            </Link>
+            <Link to="/episodes" className="nav-link">
               Episodes
-            </Nav.Link>
-            <Nav.Link href="#recently-added">Recently Added</Nav.Link>
+            </Link>
+            <Link to="/recent" className="nav-link">
+              Recently Added
+            </Link>
           </Nav>
           <div className="d-flex align-items-center justify-content-center">
             <Form
               inline
-              onSubmit={e => {
-                e.preventDefault()
-                this.props.getSearchQuery(this.state.searchQuery)
-              }}
             >
               <button type="submit">
                 <i className="fas fa-search"></i>
@@ -65,8 +42,7 @@ class NavBar extends Component {
                 size="sm"
                 type="text"
                 placeholder="Search"
-                value={this.state.searchQuery}
-                onChange={e => this.setState({ searchQuery: e.currentTarget.value })}
+                onChange={e => this.props.history.push(`/search/${['series', 'movies', 'episodes'].includes(this.props.match.params.type) ? this.props.match.params.type : 'movies'}/${e.currentTarget.value}`)}
               />
             </Form>
             <p className="my-0 mx-3 text-white"> KIDS</p>
@@ -91,4 +67,4 @@ class NavBar extends Component {
   }
 }
 
-export default NavBar
+export default withRouter(NavBar)

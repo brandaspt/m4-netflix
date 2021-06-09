@@ -1,0 +1,44 @@
+.showDetailsInfo .list-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.showDetailsInfo .list-group-item {
+    color: white;
+    background-color: transparent;
+    padding: 0;
+}
+
+.showDetailsInfo .list-group-item {
+    color: white;
+    background-color: transparent;
+    padding: 0;
+}
+
+.showDetailsInfo {
+    margin-top: 100px;
+}
+
+.showDetailsComments {
+    margin-top: 50px;
+    /* border: 1px solid white; */
+    padding: 0px;
+}
+
+.commentInfo {
+    background-color: rgb(163, 163, 163);
+    padding: 15px 20px;
+}
+
+.showDetailsComments .list-group-item {
+    padding: 0;
+    border: none;
+}
+
+.showDetailsComments p {
+    padding: 0 20px;
+    background-color: black;
+    color: white;
+}

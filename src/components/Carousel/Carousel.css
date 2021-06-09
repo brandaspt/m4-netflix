@@ -1,0 +1,305 @@
+body {
+  background-color: black!important;
+}
+
+.carouselItemsRow {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  overscroll-behavior: contain;
+  flex-wrap: nowrap !important;
+  scrollbar-width: none;
+  position: relative;
+}
+
+.carouselPadMar {
+  padding-bottom: 320px;
+  margin-bottom: -320px;
+}
+
+.carouselItemsRow::-webkit-scrollbar {
+  display: none;
+}
+
+.carouselRow {
+  background-color: black;
+  margin-right: 0!important;
+  margin-left: 0!important;
+  position: relative;
+}
+
+.carouselRow h2 {
+  font-size: 25px;
+  margin-left: 1px;
+  color: white;
+}
+
+
+/* Carousel card css below */
+@keyframes borderHover {
+  0% { border: 0px solid rgb(0, 0, 0); border-top: none; }
+  100% { border: 2px solid rgb(107, 0, 0); border-top: none; }
+}
+
+.carouselCardCol .card-img-top {
+  height: 140px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: unset;
+  object-position: center;
+}
+
+@media screen and (min-width: 576px) {
+  .carouselCardCol .card:hover {
+      transform: scale(1.2) perspective(1000px);
+      z-index: 100;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .carouselCardCol .card:hover {
+      z-index: 100;
+  }
+}
+
+.carouselCardCol .card {
+  position: relative;
+  border-radius: 0px;
+  transform-origin: 0% 50%;
+  border: none;
+  height: 100%;
+  transition: all 0.5s;
+}
+
+.carouselCardCol .lastCardInCarousel {
+  transform-origin: 100% 50%;
+}
+
+.card:hover .cardInfo {
+  border: 2px solid rgb(107, 0, 0);
+  border-top: none;
+  animation: borderHover 0.5s;
+}
+
+.card:hover .cardBody {
+  border: 2px solid rgb(107, 0, 0);
+  border-bottom: none;
+}
+
+.carouselCardCol {
+  transition: all 0.5s;
+}
+
+.carouselCardCol:hover {
+  margin-right: 3.5%;
+}
+
+.carouselCardCol .card .cardBody {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  opacity: 0;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 0.5s;
+  color: white;
+  padding: 0 15px;
+} 
+
+.carouselCardCol .card:hover .cardBody {
+  height: calc(100% + 1px);
+  background: linear-gradient(0deg, rgba(4,8,12,1) 0%, rgba(255,255,255,0) 100%);
+  opacity: 1;
+}
+
+.carouselCardCol .card-text {
+  font-size: 13px;
+}
+
+.carouselCardCol .card-title {
+  display: block;
+  font-size: 15px;
+  margin-bottom: 0;
+}
+
+.card .cardInfo {
+  position: absolute;
+  background-color: rgb(0, 0, 0);
+  bottom: -268px;
+  left:0;
+  z-index: 99999;
+  height: 268px;
+  width: 100%;
+}
+
+
+/* Card comment section css below */
+.comment-list {
+  max-height: 165px;
+}
+
+.comment-list {
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.comment-list::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.comment-rate {
+  min-width: 25px;
+}
+
+
+/* Card comment section comment list css below */
+.comment-item {
+  background-color: transparent!important;
+  color: white;
+  border-bottom: 1px solid white!important;
+  padding: 10px 5px!important;
+}
+
+.comment-item::after {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  content: 'PRESS TO DELETE';
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  background-color: rgba(105, 0, 0, 0.966);
+  transition: opacity 0.5s;
+}
+
+.comment-item:hover::after {
+  opacity: 1;
+}
+
+
+/* Card comment section comment add form css below */
+.cardInfo .comment-input {
+  background-color: transparent;
+  color: white!important;
+}
+
+.cardInfo .comment-input:focus {
+  background-color: transparent;
+  border: 1px solid green;
+  box-shadow: none;
+}
+
+.cardInfo .comment-button {
+  background-color: transparent;
+  border: 1px solid rgb(16, 180, 1);
+}
+
+.cardInfo .comment-button:hover {
+  background-color: green;
+  border: 1px solid rgb(16, 180, 1);
+}
+
+.cardInfo .comment-select {
+  background-color: transparent;
+  color: white;
+}
+
+.cardInfo .comment-select:hover {
+  background-color: transparent;
+}
+
+.cardInfo .form-check-input {
+  background-color: turquoise;
+}
+
+
+/* Carousel Buttons styling below */
+.carouselBtnLeft:hover, .carouselBtnRight:hover {
+  cursor: pointer;
+}
+
+.carouselWithBtns {
+  position: relative;
+  padding: 0 20px;
+}
+
+.carouselBtnLeft {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 165px;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 100%);
+  z-index: 10;
+}
+
+.carouselBtnRight {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 165px;
+  height: 100%;
+  background: linear-gradient(-90deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 100%);
+  z-index: 10;
+}
+
+.carouselBtnLeft svg {
+  fill: white;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  z-index: 11;
+  top: 50%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  transition: all 0.5s;
+}
+
+.carouselBtnLeft:hover svg {
+  width: 70px;
+  height: 70px;
+}
+
+.carouselBtnRight:hover svg {
+  width: 70px;
+  height: 70px;
+}
+
+.carouselBtnRight svg {
+  fill: white;
+  position: absolute;
+  z-index: 11;
+  width: 50px;
+  height: 50px;
+  top: 50%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  transition: all 0.5s;
+}
+
+@media screen and (max-width: 992px) {
+  .carouselBtnLeft {
+    width: 100px;
+  }
+  
+  .carouselBtnRight {
+    width: 100px;
+  }
+
+  .carouselBtnLeft svg {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .carouselBtnRight svg {
+    width: 40px;
+    height: 40px;
+  }
+}

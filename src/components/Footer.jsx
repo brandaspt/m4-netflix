@@ -5,7 +5,7 @@ import { Container, Row, Col, Button } from "react-bootstrap"
 class Footer extends Component {
   render() {
     return (
-      <Container fluid className="Footer ">
+      <Container fluid className="Footer">
         <Container>
           <Row>
             <Col className="col-12 col-md-6 col-lg-3 mt-4 icons">
@@ -39,7 +39,7 @@ class Footer extends Component {
                   <a href="#home">Contact Us</a>
                 </li>
               </ul>
-              <Button variant="black">Service Code</Button>
+              <Button className="mb-2 mt-3" variant="black">Service Code</Button>
               <p>Ⓒ 1997-2019 Netflix, Inc.</p>
             </Col>
             <Col className="col-12 col-md-6 col-lg-3">

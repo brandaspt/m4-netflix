@@ -14,7 +14,7 @@ class CardComments extends React.Component {
 
     render() {
         return (
-            <div className="cardInfo d-flex flex-column" onMouseOver={() => this.props.commHover(true)} onMouseLeave={() => this.props.commHover(false)}>
+            <div className="cardInfo d-flex flex-column">
                 <CommentsList imdbID={this.props.imdbID} updated={this.state.updated} update={this.update} />
                 <CommentAdd imdbID={this.props.imdbID} update={this.update} />
             </div>

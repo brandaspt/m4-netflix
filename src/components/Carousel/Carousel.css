@@ -29,7 +29,7 @@ body {
 
 .carouselRow h2 {
   font-size: 25px;
-  margin-left: 1px;
+  margin-left: 3px;
   color: white;
 }
 
@@ -46,6 +46,14 @@ body {
   object-fit: cover;
   border-radius: unset;
   object-position: center;
+  position: relative;
+}
+
+.carouselCardCol .cardImgLogo {
+  position: absolute;
+  left: 0;
+  top: -5px;
+  width: 30%;
 }
 
 @media screen and (min-width: 576px) {
@@ -233,12 +241,12 @@ body {
 
 .carouselWithBtns {
   position: relative;
-  padding: 0 20px;
+  padding: 0 0;
 }
 
 .carouselBtnLeft {
   position: absolute;
-  left: 0;
+  left: -15px;
   bottom: 0;
   width: 165px;
   height: 100%;
@@ -248,7 +256,7 @@ body {
 
 .carouselBtnRight {
   position: absolute;
-  right: 0;
+  right: -15px;
   bottom: 0;
   width: 165px;
   height: 100%;

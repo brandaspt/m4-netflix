@@ -15,18 +15,18 @@ class SearchGrid extends Component {
   }
 
   componentDidUpdate = prevProps => {
-    if (prevProps.searchQuery !== this.props.searchQuery || prevProps.type !== this.props.type) this.fetchData()
+    if (prevProps.match.params.query !== this.props.match.params.query || prevProps.match.params.type !== this.props.match.params.type) this.fetchData()
   }
 
   fetchData = async () => {
-    const result = await getFilms(this.props.searchQuery, this.props.type)
+    const type = this.props.match.params.type === 'movies' ? 'movie' : this.props.match.params.type === 'episodes' ? 'episode' : this.props.match.params.type
+    const result = await getFilms(this.props.match.params.query, type)
     if(!result.error) {
       this.setState({ isLoading: false, movies: result.data.Search })
     }
   }
 
   render() {
-    console.log(this.state.movies)
     return (
       <CardGroup className="justify-content-center px-3">
         {this.state.movies ? this.state.movies.map(el => <SearchCard key={el.imdbID} item={el} />) : <p>No results</p>}

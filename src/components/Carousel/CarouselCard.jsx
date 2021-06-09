@@ -23,7 +23,10 @@ class CarouselCard extends React.Component {
     render() {
         return (
             <Col xs={12} sm={6} md={4} lg={3} xl={2} className="carouselCardCol py-3 px-0">    
-                <Card className={this.state.last ? "mx-1 lastCardInCarousel" : "mx-1"} onMouseOver={(e) => {this.setState({...this.state, hovered: true}); this.isLast(e)}} onMouseLeave={() => {this.setState({...this.state, hovered: false})}}>
+                <Card className={this.state.last ? "mx-1 lastCardInCarousel" : "mx-1"} 
+                        onMouseOver={(e) => {this.setState({...this.state, hovered: true}); this.isLast(e)}} 
+                        onMouseLeave={() => {this.setState({...this.state, hovered: false})}}
+                        >
                     <div className="cardImgWrapper">
                         <Card.Img variant="top" src={this.props.Poster} />
                         <img className="cardImgLogo" src={Logo} alt="netflix logo" />

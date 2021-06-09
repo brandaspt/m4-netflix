@@ -83,3 +83,10 @@ export const postComment = async (comment) => {
     const result = await fetchData(fetchComments("", "POST", comment))
     return result
 }
+
+// function to get one single movie/show/getFilms
+export const getSingleMovie = async (id) => {
+    const query = '&i=' + id
+    const result = await fetchData(fetchFilms(query))
+    return result
+}

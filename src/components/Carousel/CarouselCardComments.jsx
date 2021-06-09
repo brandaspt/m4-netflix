@@ -1,5 +1,4 @@
 import React from 'react'
-import './css/CardComments.css'
 import CommentsList from './CommentsList'
 import CommentAdd from './CommentAdd'
 import { Button } from 'react-bootstrap'
@@ -11,7 +10,7 @@ class CardComments extends React.Component {
         updated: false
     }
 
-    commentsUpdated = () => {
+    update = () => {
         this.setState({updated: true}, () => this.setState({updated: false}))
     }
 

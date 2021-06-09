@@ -26,7 +26,7 @@ class SearchCard extends Component {
             </Button>
             <Link to={"/details/" + this.props.item.imdbID}>
               <Button className="btn btn-info btn-sm mb-2 ml-5" onClick={() => this.setState({ showModal: true })}>
-                Details
+                Detail
               </Button>
             </Link>
           </Card.Body>

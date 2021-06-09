@@ -9,7 +9,7 @@ class CardComments extends React.Component {
     }
 
     update = () => {
-        this.setState({updated: true})
+        this.setState({updated: true}, () => this.setState({updated: false}))
     }
 
     render() {

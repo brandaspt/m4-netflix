@@ -1,5 +1,5 @@
 import React from "react"
-import CarouselItem from "./CarouselCard"
+import CarouselCard from "./CarouselCard"
 import LoadingSpinner from "../LoadingSpinner"
 import scrollFunction from "../common/scrollerFunction"
 import SwipeScroll from "../common/scrollClass"
@@ -14,16 +14,10 @@ class Carousel extends React.Component {
   state = {
     movies: [],
     isLoading: true,
-    hoveringCardComms: false,
     carouselHovered: true
   }
 
   scrolling = false
-
-  hoveringOverCardComms = (hovering) => {
-    this.setState({...this.state, hoveringCardComms: hovering})
-  }
-
 
   componentDidMount = async () => {
     this.fetchData()
@@ -64,7 +58,7 @@ class Carousel extends React.Component {
               <LoadingSpinner />
             ) : (
               this.state.movies.map((movie, i) => {
-                return <CarouselItem {...movie} commHover={this.hoveringOverCardComms} key={i} />
+                return <CarouselCard {...movie} key={i} />
               })
             )}
           </Row>

@@ -52,14 +52,15 @@ class CommentsList extends React.Component {
                         this.state.comments.length === 0
                         && this.state.isLoading === false
                     )
-                        ? <div className="d-flex justify-content-center align-items-center"><p className="text-white">No Comments Yet</p></div>
+                        ? <div className="d-flex justify-content-center align-items-center"><p className="text-white pt-3">No Comments Yet</p></div>
                         : <ListGroup className="p-2 comment-list overflow-auto" variant="flush">
                             {this.state.comments.map(comment => 
-                                <ListGroup.Item key={comment._id} className="d-flex text-break comment-item" onClick={() => this.delComment(comment._id)}>
-                                    <div>
+                                <ListGroup.Item key={comment._id} className="d-flex flex-column comment-item" onClick={() => this.delComment(comment._id)}>
+                                    <div className="d-flex text-break w-100">
                                         <span className="mr-auto">{comment.comment}</span>
                                         <span className="comment-rate">{comment.rate}/5</span>
                                     </div>
+                                    <p className="commAuthor m-0">{comment.author}</p>
                                 </ListGroup.Item>    
                             )}
                         </ListGroup>

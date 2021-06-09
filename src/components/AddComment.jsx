@@ -1,9 +1,9 @@
 import React from 'react'
 import { Form, Col, Button, Row, InputGroup } from 'react-bootstrap'
-import { postComment } from '../common/dataFetch'
+import './css/AddComment.css'
 
 
-class CommentAdd extends React.Component {
+class AddComment extends React.Component {
 
     state = {
         comment: {
@@ -27,24 +27,34 @@ class CommentAdd extends React.Component {
 
     sendComment = async (e) => {
         e.preventDefault()
-
         this.setState({...this.state, sending: true})
 
-        const result = await postComment(this.state.comment)
-        if(result.error) {
-            alert("error with posting comment")    
+        try {
+            let response = await fetch("https://striveschool-api.herokuapp.com/api/comments/", {
+                method: 'POST',
+                body: JSON.stringify(this.state.comment),
+                headers: {
+                    'Content-type': 'application/json',
+                    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGFlMzU3MWNlYWY0ODAwMTVjOTE4NjIiLCJpYXQiOjE2MjI3MjgxNjQsImV4cCI6MTYyMzkzNzc2NH0.9IIHO9P16tKwX-Ou8dNdpGV3lroNfYEEjkMGlNmsbhw"
+                }
+            })
+            if (await response.ok) {
+                this.setState({
+                    ...this.state,
+                    comment: {
+                        comment: '',
+                        rate: 1,
+                        elementId: this.props.imdbID
+                    }
+                })
+                this.props.commentsUpdated()
+            } else {
+                console.log('Error with POST request')
+            }
+        } catch (error) {
+            console.log(error)
         }
-
-        this.props.update()
-
-        this.setState({
-            comment: {
-                comment: '',
-                rate: 1,
-                elementId: this.props.imdbID
-            },
-            sending: false
-        })
+        this.setState({...this.state, sending: false})
     }
 
     render () {
@@ -71,7 +81,6 @@ class CommentAdd extends React.Component {
                                 {
                                     [1, 2, 3, 4, 5].map(num => {
                                         return <Form.Check
-                                            key={num}
                                             inline
                                             label={`${num}`}
                                             name={`group${this.props.imdbID}`}
@@ -91,4 +100,4 @@ class CommentAdd extends React.Component {
     }
 }
 
-export default CommentAdd
+export default AddComment

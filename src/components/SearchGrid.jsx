@@ -1,8 +1,7 @@
 import { Component } from "react"
 import { CardGroup } from "react-bootstrap"
 import SearchCard from "./SearchCard"
-import "./SearchGrid.css"
-import { getFilms } from "../common/dataFetch"
+import "./css/SearchGrid.css"
 
 class SearchGrid extends Component {
   state = {
@@ -19,16 +18,24 @@ class SearchGrid extends Component {
   }
 
   fetchData = async () => {
-    const result = await getFilms(this.props.searchQuery, this.props.type)
-    if(!result.error) {
-      this.setState({ isLoading: false, movies: result.data.Search })
+    try {
+      const response = await fetch(
+        `http://www.omdbapi.com/?apikey=c4961d1f&s=${this.props.searchQuery}&type=${this.props.type === "home" ? "movie" : this.props.type}`
+      )
+      if (response.ok) {
+        const data = await response.json()
+        this.setState({ isLoading: false, movies: data.Search })
+      } else {
+        console.log("error with fetching")
+      }
+    } catch (error) {
+      console.log(error)
     }
   }
-
   render() {
     console.log(this.state.movies)
     return (
-      <CardGroup className="justify-content-center px-3">
+      <CardGroup className="justify-content-center">
         {this.state.movies ? this.state.movies.map(el => <SearchCard key={el.imdbID} item={el} />) : <p>No results</p>}
       </CardGroup>
     )

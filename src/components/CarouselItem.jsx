@@ -1,28 +1,18 @@
 import React from 'react'
-import { Col, Card } from 'react-bootstrap'
-import CardComments from './CarouselCardComments'
+import { Col, Card, Form } from 'react-bootstrap'
+import './css/CarouselItem.css'
+import CardComments from './CardComments'
 
 class CarouselItem extends React.Component {
 
     state = {
-        hovered: false,
-        last: false
-    }
-
-    isLast = (e) => {
-        const cardRect = e.target.getBoundingClientRect()
-        const windowMinusRect = window.innerWidth - cardRect.width
-        if(windowMinusRect > cardRect.left && windowMinusRect < cardRect.right) {
-            this.setState({hovered: true, last: true})
-        } else {
-            this.setState({hovered: true, last: false})
-        }
+        hovered: false
     }
 
     render() {
         return (
-            <Col xs={12} sm={6} md={4} lg={3} xl={2} className="carouselCardCol py-3 px-0">    
-                <Card className={this.state.last ? "mx-1 lastCardInCarousel" : "mx-1"} onMouseOver={(e) => {this.setState({...this.state, hovered: true}); this.isLast(e)}} onMouseLeave={() => {this.setState({...this.state, hovered: false}); this.props.commHover(false)}}>
+            <Col xs={12} sm={6} md={4} lg={3} xl={2} className="carouselCardCol py-3 px-0 pushCard">    
+                <Card className="mx-1" onMouseOver={() => this.setState({hovered: true})} onMouseLeave={() => {this.setState({hovered: false}); this.props.commHover(false)}}>
                     <div className="cardImgWrapper">
                         <Card.Img variant="top" src={this.props.Poster} />
                     </div>

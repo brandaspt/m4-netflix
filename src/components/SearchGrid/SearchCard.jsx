@@ -1,6 +1,7 @@
 import { Component } from "react"
 import { Col, Card, Button } from "react-bootstrap"
 import SearchCommentsModal from "./SearchCommentsModal"
+import { Link } from 'react-router-dom'
 
 class SearchCard extends Component {
   state = {
@@ -23,6 +24,11 @@ class SearchCard extends Component {
             <Button className="btn btn-warning btn-sm mb-2" onClick={() => this.setState({ showModal: true })}>
               Comments
             </Button>
+            <Link to={"/details/" + this.props.item.imdbID}>
+              <Button className="btn btn-info btn-sm mb-2 ml-5" onClick={() => this.setState({ showModal: true })}>
+                Details
+              </Button>
+            </Link>
           </Card.Body>
         </Card>
         {this.state.showModal && (

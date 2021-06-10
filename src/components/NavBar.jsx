@@ -1,6 +1,6 @@
 import { Component } from "react"
 import { Navbar, Nav, Dropdown, Form, FormControl } from "react-bootstrap"
-import { Link, withRouter } from 'react-router-dom'
+import { Link, withRouter } from "react-router-dom"
 import "./css/NavBar.css"
 
 class NavBar extends Component {
@@ -9,7 +9,7 @@ class NavBar extends Component {
     return (
       <Navbar variant="dark" expand="lg">
         <Navbar.Brand href="#home">
-          <img alt="" src="/logo.png" width="80" className="d-inline-block align-top" />
+          <img alt="" src="../../public/logo.png" width="80" className="d-inline-block align-top" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -31,9 +31,7 @@ class NavBar extends Component {
             </Link>
           </Nav>
           <div className="d-flex align-items-center justify-content-center">
-            <Form
-              inline
-            >
+            <Form inline>
               <button type="submit">
                 <i className="fas fa-search"></i>
               </button>
@@ -42,7 +40,13 @@ class NavBar extends Component {
                 size="sm"
                 type="text"
                 placeholder="Search"
-                onChange={e => this.props.history.push(`/search/${['series', 'movies', 'episodes'].includes(this.props.match.params.type) ? this.props.match.params.type : 'movies'}/${e.currentTarget.value}`)}
+                onChange={e =>
+                  this.props.history.push(
+                    `/search/${
+                      ["series", "movies", "episodes"].includes(this.props.match.params.type) ? this.props.match.params.type : "movies"
+                    }/${e.currentTarget.value}`
+                  )
+                }
               />
             </Form>
             <p className="my-0 mx-3 text-white"> KIDS</p>

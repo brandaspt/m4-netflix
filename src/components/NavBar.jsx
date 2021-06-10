@@ -40,12 +40,13 @@ class NavBar extends Component {
                 size="sm"
                 type="text"
                 placeholder="Search"
-                onChange={e =>
-                  this.props.history.push(
-                    `/search/${
-                      ["series", "movies", "episodes"].includes(this.props.match.params.type) ? this.props.match.params.type : "movies"
-                    }/${e.currentTarget.value}`
-                  )
+                onChange={e => {
+                    const params = new URLSearchParams(decodeURI(this.props.location.search))
+                    params.set('q', encodeURI(e.currentTarget.value))
+                    this.props.history.push(
+                      `/search/?${params.toString()}`
+                    )
+                  }
                 }
               />
             </Form>

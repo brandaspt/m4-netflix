@@ -1,15 +1,15 @@
 import { Component } from "react"
 import { Navbar, Nav, Dropdown, Form, FormControl } from "react-bootstrap"
 import { Link, withRouter } from "react-router-dom"
+import NavLogo from "../assets/logoNav.png"
 import "./css/NavBar.css"
 
 class NavBar extends Component {
   render() {
-    console.log(this.props)
     return (
       <Navbar variant="dark" expand="lg">
         <Navbar.Brand href="#home">
-          <img alt="" src="../../public/logo.png" width="80" className="d-inline-block align-top" />
+          <img alt="" src={NavLogo} width="80" className="d-inline-block align-top" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

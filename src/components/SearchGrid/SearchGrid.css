@@ -2,11 +2,14 @@
   background-color: black;
 }
 
-
 /* Search card css below */
 .search-card.card {
   background-color: black !important;
   transition: 0.5s;
+}
+
+.search-card .person {
+  border-radius: 50%;
 }
 
 .search-card .card-body {
@@ -35,7 +38,6 @@
 .search-card .year {
   font-size: 0.7em;
 }
-
 
 /* Search comments modal css below */
 .myModal {
@@ -74,7 +76,6 @@
 .myModal-footer {
   padding-top: 15px;
 }
-
 
 /* search modal comment form css below */
 #rating-input {

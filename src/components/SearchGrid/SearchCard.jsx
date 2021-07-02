@@ -1,7 +1,7 @@
 import { Component } from "react"
 import { Col, Card, Button } from "react-bootstrap"
 import SearchCommentsModal from "./SearchCommentsModal"
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom"
 
 class SearchCard extends Component {
   state = {
@@ -13,18 +13,26 @@ class SearchCard extends Component {
     else document.body.style.overflow = "unset"
   }
 
+  buildImgUrl = path => {
+    return `https://image.tmdb.org/t/p/w185${path}`
+  }
+
   render() {
     return (
       <Col xs={6} sm={4} md={3} lg={2}>
         <Card className="my-3 border-0 search-card">
-          <Card.Img className="img-fluid" variant="top" src={this.props.item.Poster} />
+          <Card.Img
+            className={`img-fluid ${this.props.item.media_type === "person" && "rounded-circle"}`}
+            variant="top"
+            src={this.buildImgUrl(this.props.item.poster_path || this.props.item.profile_path)}
+          />
           <Card.Body className="text-center p-1 text-white">
-            <Card.Text className="m-0">{this.props.item.Title}</Card.Text>
-            <Card.Text className="year">{this.props.item.Year}</Card.Text>
+            <Card.Text className="m-0">{this.props.item.name || this.props.item.title}</Card.Text>
+            <Card.Text className="year">{this.props.item.vote_average}</Card.Text>
             <Button className="btn btn-warning btn-sm mb-2" onClick={() => this.setState({ showModal: true })}>
               Comments
             </Button>
-            <Link to={"/details/" + this.props.item.imdbID}>
+            <Link to={"/details/" + this.props.item.id}>
               <Button className="btn btn-info btn-sm mb-2 ml-5" onClick={() => this.setState({ showModal: true })}>
                 Detail
               </Button>

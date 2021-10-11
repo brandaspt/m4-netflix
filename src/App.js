@@ -9,23 +9,25 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import defaultCarousels from "./data/defaultCarousel.json"
 import ShowDetails from "./components/ShowDetails/ShowDetails"
 
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <NavBar />
-        <Route exact path="/:type" render={(props) =>
-          <>
-            <CategoryBar {...props} />
-            {
-              props.match.params.type in defaultCarousels && defaultCarousels[props.match.params.type].map(carousel => <Carousel key={carousel.carouselName} {...carousel} />)
-            }
-          </>
-        } />
-        <Route exact path="/search/:type/:query" component={SearchGrid} />
-        <Route path="/details/:showId" component={ShowDetails} />
+        <Switch>
+          <Route path="/search/" component={SearchGrid} />
+          <Route exact path="/:type" render={(props) =>
+            <>
+              <CategoryBar {...props} />
+              {
+                props.match.params.type in defaultCarousels && defaultCarousels[props.match.params.type].map(carousel => <Carousel key={carousel.carouselName} {...carousel} />)
+              }
+            </>
+          } />
+          <Route path="/details/:showId" component={ShowDetails} />
+        </Switch>
         <Footer />
       </div>
     )

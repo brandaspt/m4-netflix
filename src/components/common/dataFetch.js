@@ -2,12 +2,11 @@
 const fetchConfig = {
   omdbAPI: {
     baseURL: "https://www.omdbapi.com/?",
-    apiKey: "apikey=c4961d1f",
+    apiKey: `apikey=${process.env.REACT_APP_OMDB_API_KEY}`,
   },
   commentsAPI: {
     baseURL: "https://striveschool-api.herokuapp.com/api/comments/",
-    authToken:
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGFlMzU3MWNlYWY0ODAwMTVjOTE4NjIiLCJpYXQiOjE2MjI3MjgxNjQsImV4cCI6MTYyMzkzNzc2NH0.9IIHO9P16tKwX-Ou8dNdpGV3lroNfYEEjkMGlNmsbhw",
+    authToken: process.env.REACT_APP_STRIVE_API_TOKEN,
     contentType: "application/json",
   },
 }
